@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f4f0e8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>NUMBER 25</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <p class="eyebrow">SPEED TAP GAME</p>
+          <h1>NUMBER <span>25</span></h1>
+        </div>
+        <button class="sound-button" id="soundButton" type="button" aria-label="効果音を切り替える">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 3a4.5 4.5 0 0 0-2.1-3.8v7.6a4.5 4.5 0 0 0 2.1-3.8Z" />
+          </svg>
+        </button>
+      </header>
+
+      <section class="status" aria-label="ゲーム状況">
+        <div class="status-item">
+          <span class="status-label">TIME</span>
+          <strong id="timer">0.00</strong>
+        </div>
+        <div class="status-divider"></div>
+        <div class="status-item status-item--center">
+          <span class="status-label">NEXT</span>
+          <strong id="nextNumber">1</strong>
+        </div>
+        <div class="status-divider"></div>
+        <div class="status-item status-item--right">
+          <span class="status-label">BEST</span>
+          <strong id="bestTime">--.--</strong>
+        </div>
+      </section>
+
+      <section class="game-area">
+        <div class="board" id="board" aria-label="数字タップ盤面"></div>
+
+        <div class="overlay" id="startOverlay">
+          <div class="overlay-card">
+            <p class="overlay-kicker">HOW TO PLAY</p>
+            <h2>1から25まで<br />順番にタップ</h2>
+            <p>スタート後、できるだけ速く<br />数字を見つけよう。</p>
+            <button class="primary-button" id="startButton" type="button">
+              スタート
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="countdown" id="countdown" aria-live="assertive"></div>
+
+        <div class="overlay overlay--result" id="resultOverlay" hidden>
+          <div class="overlay-card result-card">
+            <p class="overlay-kicker">FINISH!</p>
+            <h2 id="resultTime">0.00<span>秒</span></h2>
+            <p class="result-message" id="resultMessage">ナイスプレイ！</p>
+            <div class="result-stats">
+              <span>ベストタイム</span>
+              <strong id="resultBest">0.00 秒</strong>
+            </div>
+            <button class="primary-button" id="retryButton" type="button">
+              もう一度
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 11a8.1 8.1 0 1 0-2.3 5.7M20 4v7h-7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span>焦らず、正確に。</span>
+        <button id="resetBestButton" type="button">記録をリセット</button>
+      </footer>
+    </main>
+  </body>
+</html>
